@@ -1,13 +1,13 @@
 @import "tailwindcss";
 
 :root {
-  --background: #fcfcfb;
-  --foreground: #111827;
-  --surface: rgba(255, 255, 255, 0.78);
-  --line: rgba(17, 24, 39, 0.08);
-  --muted: #6b7280;
-  --accent: #2563eb;
-  --accent-soft: rgba(37, 99, 235, 0.1);
+  --background: #fffaf5;
+  --foreground: #172033;
+  --surface: rgba(255, 255, 255, 0.82);
+  --line: rgba(23, 32, 51, 0.08);
+  --muted: #5f6b85;
+  --accent: #f05a28;
+  --accent-soft: rgba(240, 90, 40, 0.14);
 }
 
 @theme inline {
@@ -18,12 +18,15 @@
 }
 
 body {
+  min-height: 100vh;
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-inter), Arial, Helvetica, sans-serif;
   background-image:
-    radial-gradient(circle at top left, rgba(37, 99, 235, 0.08), transparent 28%),
-    linear-gradient(180deg, #fcfcfb 0%, #f8fafc 52%, #ffffff 100%);
+    radial-gradient(circle at 8% 12%, rgba(255, 110, 64, 0.2), transparent 24%),
+    radial-gradient(circle at 84% 14%, rgba(253, 224, 71, 0.18), transparent 20%),
+    radial-gradient(circle at 72% 64%, rgba(56, 189, 248, 0.14), transparent 24%),
+    linear-gradient(180deg, #fff7ed 0%, #fffdf8 42%, #f7fbff 100%);
 }
 
 * {
@@ -44,8 +47,34 @@ a {
 }
 
 .soft-card {
-  background: var(--surface);
-  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(23, 32, 51, 0.08);
   backdrop-filter: blur(14px);
-  box-shadow: 0 24px 70px rgba(15, 23, 42, 0.06);
+  box-shadow: 0 24px 70px rgba(84, 68, 46, 0.08);
+}
+
+.hero-shell {
+  position: relative;
+}
+
+.hero-shell::before {
+  content: "";
+  position: absolute;
+  inset: -48px -24px auto auto;
+  width: 220px;
+  height: 220px;
+  border-radius: 9999px;
+  background: radial-gradient(circle, rgba(240, 90, 40, 0.18), transparent 72%);
+  pointer-events: none;
+}
+
+.hero-shell::after {
+  content: "";
+  position: absolute;
+  inset: auto auto -32px -20px;
+  width: 180px;
+  height: 180px;
+  border-radius: 9999px;
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.16), transparent 72%);
+  pointer-events: none;
 }
